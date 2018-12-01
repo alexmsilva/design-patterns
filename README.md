@@ -1,3 +1,3 @@
-# Design Patterns
+# Design Patterns / Padrões de Projeto
 
-This is only a repository with some design patterns developed in PHP to use in a fast course.
+Apenas um repositório com alguns padrões de projeto, desenvolvidos em PHP, para uso rápido em algum curso de curta duração.
