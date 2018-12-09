@@ -4,3 +4,4 @@ Apenas um repositório com alguns padrões de projeto, desenvolvidos em PHP, par
 
 - Strategy
 - Chain of Responsability
+- Template Method

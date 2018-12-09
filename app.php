@@ -5,6 +5,8 @@ require "ChainResponsability/CalculadoraDesconto.php";
 require "ChainResponsability/Item.php";
 require "Strategy/CalculadoraImposto.php";
 require "Strategy/Imposto.php";
+require "TemplateMethod/TemplateImpostoCondicional.php";
+require "TemplateMethod/ICPP.php";
 require "Strategy/ICMS.php";
 require "Strategy/ISS.php";
 require "Strategy/IOF.php";
@@ -19,6 +21,7 @@ echo "ICMS: ", $calculadoraImposto->calcula($orcamento, new ICMS()), PHP_EOL;
 echo "ISS: ", $calculadoraImposto->calcula($orcamento, new ISS()), PHP_EOL;
 echo "IOF: ", $calculadoraImposto->calcula($orcamento, new IOF()), PHP_EOL;
 echo "ICCC: ", $calculadoraImposto->calcula($orcamento, new ICCC()), PHP_EOL;
+echo "ICPP: ", $calculadoraImposto->calcula($orcamento, new ICPP()), PHP_EOL;
 
 
 $orcamento->addItem(new Item("Tinta", 2300));

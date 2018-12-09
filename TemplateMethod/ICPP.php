@@ -1,5 +1,5 @@
 <?php
-class ICMS extends TemplateImpostoCondicional
+class ICPP extends TemplateImpostoCondicional
 {
     public function deveUsarMaximaTaxacao(Orcamento $orcamento)
     {

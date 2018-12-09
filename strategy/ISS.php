@@ -1,9 +1,19 @@
 <?php
-class ISS implements Imposto
+class ISS extends TemplateImpostoCondicional
 {
-    public function calcula(Orcamento $orcamento)
+    public function deveUsarMaximaTaxacao(Orcamento $orcamento)
     {
-        return $orcamento->getValor() * 0.1;
+    	return ($orcamento->getValor() > 500);
+    }
+
+    public function maximaTaxacao(Orcamento $orcamento)
+    {
+    	return number_format($orcamento->getValor() * 0.07, 2);
+    }
+
+    public function minimaTaxacao(Orcamento $orcamento)
+    {
+    	return number_format($orcamento->getValor() * 0.05, 2);
     }
 }
 ?>
