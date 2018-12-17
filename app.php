@@ -23,6 +23,7 @@ echo "IOF: ", $calculadoraImposto->calcula($orcamento, new IOF()), PHP_EOL;
 echo "ICCC: ", $calculadoraImposto->calcula($orcamento, new ICCC()), PHP_EOL;
 echo "ICPP: ", $calculadoraImposto->calcula($orcamento, new ICPP()), PHP_EOL;
 
+echo PHP_EOL, "IMPOSTO COMPOSTO: ", $calculadoraImposto->calcula($orcamento, new ISS(new ICCC(new IOF))), PHP_EOL;
 
 $orcamento->addItem(new Item("Tinta", 2300));
 $orcamento->addItem(new Item("Tacos", 3000));

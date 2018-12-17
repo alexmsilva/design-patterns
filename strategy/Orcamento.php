@@ -25,4 +25,3 @@ class Orcamento
         return $this->valor;
     }
 }
-?>
