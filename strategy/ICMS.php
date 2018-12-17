@@ -16,4 +16,3 @@ class ICMS extends TemplateImpostoCondicional
     	return number_format($orcamento->getValor() * 0.05, 2);
     }
 }
-?>

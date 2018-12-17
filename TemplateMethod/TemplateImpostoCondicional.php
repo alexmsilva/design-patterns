@@ -1,5 +1,5 @@
 <?php
-abstract class TemplateImpostoCondicional extends Imposto
+abstract class TemplateImpostoCondicional extends ImpostoDecorator
 {
 	public final function calcula(Orcamento $orcamento)
 	{

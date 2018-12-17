@@ -6,4 +6,3 @@ class CalculadoraImposto
         return $imposto->calcula($orcamento);
     }
 }
-?>

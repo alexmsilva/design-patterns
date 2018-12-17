@@ -17,4 +17,3 @@ class Desconto5Items implements Desconto
 		$this->proximo = $desconto;
 	}
 }
-?>
