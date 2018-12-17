@@ -8,12 +8,11 @@ class ICPP extends TemplateImpostoCondicional
 
     public function maximaTaxacao(Orcamento $orcamento)
     {
-    	return number_format($orcamento->getValor() * 0.07, 2);
+    	return number_format($orcamento->getValor() * 0.0007, 2);
     }
 
     public function minimaTaxacao(Orcamento $orcamento)
     {
-    	return number_format($orcamento->getValor() * 0.05, 2);
+    	return number_format($orcamento->getValor() * 0.0005, 2);
     }
 }
-?>

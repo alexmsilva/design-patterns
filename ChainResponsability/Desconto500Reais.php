@@ -17,4 +17,3 @@ class Desconto500Reais implements Desconto
 		$this->proximo = $desconto;
 	}
 }
-?>

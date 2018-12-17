@@ -5,6 +5,9 @@ require "ChainResponsability/CalculadoraDesconto.php";
 require "ChainResponsability/Item.php";
 require "Strategy/CalculadoraImposto.php";
 require "Strategy/Imposto.php";
+require "Decorator/ImpostoDecorator.php";
+require "Decorator/ImpostoEstadual.php";
+require "Decorator/ImpostoFederal.php";
 require "TemplateMethod/TemplateImpostoCondicional.php";
 require "TemplateMethod/ICPP.php";
 require "Strategy/ICMS.php";
@@ -23,6 +26,8 @@ echo "IOF: ", $calculadoraImposto->calcula($orcamento, new IOF()), PHP_EOL;
 echo "ICCC: ", $calculadoraImposto->calcula($orcamento, new ICCC()), PHP_EOL;
 echo "ICPP: ", $calculadoraImposto->calcula($orcamento, new ICPP()), PHP_EOL;
 
+echo "ESTADUAL: ", $calculadoraImposto->calcula($orcamento, new IOF(new ICPP(new ImpostoEstadual()))), PHP_EOL;
+echo "FEDERAL: ", $calculadoraImposto->calcula($orcamento, new ISS(new ICCC(new ImpostoFederal()))), PHP_EOL;
 
 $orcamento->addItem(new Item("Tinta", 2300));
 $orcamento->addItem(new Item("Tacos", 3000));
@@ -31,5 +36,3 @@ $orcamento->addItem(new Item("Ferramentas", 1200));
 
 $calculadoraDesconto = new CalculadoraDesconto();
 echo PHP_EOL, "DESCONTO: ", $calculadoraDesconto->calcula($orcamento), PHP_EOL;
-
-?>

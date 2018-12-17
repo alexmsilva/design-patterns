@@ -20,4 +20,3 @@ class CalculadoraDesconto
 		return $desconto6MilReais->calcula($orcamento);
 	}
 }
-?>
