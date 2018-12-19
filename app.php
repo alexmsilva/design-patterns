@@ -1,5 +1,5 @@
 <?php
-require "Strategy/Orcamento.php";
+require "Orcamento.php";
 require "ChainResponsability/Desconto.php";
 require "ChainResponsability/CalculadoraDesconto.php";
 require "ChainResponsability/Item.php";
@@ -16,9 +16,17 @@ require "Strategy/IOF.php";
 require "Strategy/ICCC.php";
 
 $orcamento = new Orcamento(6500);
+
+echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
+try {
+    $orcamento->finalizar();
+} catch (Exception $e) {
+    echo PHP_EOL,  "TENTA FINALIZAR: ", $e->getMessage(), PHP_EOL;    
+}
+
 $calculadoraImposto = new CalculadoraImposto();
 
-print "IMPOSTOS" . PHP_EOL;
+echo PHP_EOL,  "IMPOSTOS", PHP_EOL;
 
 echo "ICMS: ", $calculadoraImposto->calcula($orcamento, new ICMS()), PHP_EOL;
 echo "ISS: ", $calculadoraImposto->calcula($orcamento, new ISS()), PHP_EOL;
@@ -36,3 +44,15 @@ $orcamento->addItem(new Item("Ferramentas", 1200));
 
 $calculadoraDesconto = new CalculadoraDesconto();
 echo PHP_EOL, "DESCONTO: ", $calculadoraDesconto->calcula($orcamento), PHP_EOL;
+
+$orcamento->aprovar();
+try {
+    $orcamento->aprovar();
+} catch (Exception $e) {
+    echo PHP_EOL,  "TENTA APROVAR NOVAMENTE: ", $e->getMessage(), PHP_EOL;    
+}
+
+echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
+
+$orcamento->finalizar();
+echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
