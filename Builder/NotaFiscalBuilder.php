@@ -27,16 +27,22 @@ class NotaFiscalBuilder
     public function paraEmpresa($empresa)
     {
         $this->empresa = $empresa;
+
+        return $this;
     }
 
     public function comCnpj($cnpj)
     {
         $this->cnpj = $cnpj;
+
+        return $this;
     }
 
     public function naData($data = null)
     {
         $this->dataDeEmissao = new DateTime($data);
+
+        return $this;
     }
 
     public function addItem(Item $item)
@@ -44,11 +50,15 @@ class NotaFiscalBuilder
         $this->itens[] = $item;
         $this->valorBruto += $item->getValor();
         $this->impostos += number_format($item->getValor() * 0.05);
+
+        return $this;
     }
 
     public function addObservacao($obs)
     {
         $this->observacoes[] = $obs;
+
+        return $this;
     }
 
     public function build()
