@@ -14,6 +14,8 @@ require "Strategy/ICMS.php";
 require "Strategy/ISS.php";
 require "Strategy/IOF.php";
 require "Strategy/ICCC.php";
+require "Builder/NotaFiscal.php";
+require "Builder/NotaFiscalBuilder.php";
 
 $orcamento = new Orcamento(6500);
 
@@ -56,3 +58,16 @@ echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
 
 $orcamento->finalizar();
 echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
+
+$notaFiscalBuilder = new NotaFiscalBuilder();
+$notaFiscalBuilder->paraEmpresa("88 Insurtech");
+$notaFiscalBuilder->comCnpj("11.976.469/0001-87");
+//$notaFiscalBuilder->naData();
+$notaFiscalBuilder->addItem(new Item("Tinta", 2300));
+$notaFiscalBuilder->addItem(new Item("Tacos", 3000));
+$notaFiscalBuilder->addItem(new Item("Cimento", 500));
+$notaFiscalBuilder->addItem(new Item("Ferramentas", 1200));
+$notaFiscalBuilder->addObservacao("Alex é um bom programador!");
+
+$notaFiscal = $notaFiscalBuilder->build();
+$notaFiscal->imprimir();

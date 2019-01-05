@@ -17,7 +17,7 @@ class item
 
 	public function getValor()
 	{
-		return $this->getValor;
+		return $this->valor;
 	}
 }
 ?>
