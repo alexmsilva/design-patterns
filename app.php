@@ -16,6 +16,10 @@ require "Strategy/IOF.php";
 require "Strategy/ICCC.php";
 require "Builder/NotaFiscal.php";
 require "Builder/NotaFiscalBuilder.php";
+require "Observer/AcaoAoGerarNota.php";
+require "Observer/NotaFiscalDao.php";
+require "Observer/Impressora.php";
+require "Observer/EnviarSMS.php";
 
 $orcamento = new Orcamento(6500);
 
@@ -66,6 +70,7 @@ $notaFiscal = $notaFiscalBuilder->paraEmpresa("88 Insurtech")->comCnpj("11.976.4
     ->addItem(new Item("Cimento", 500))
     ->addItem(new Item("Ferramentas", 1200))
     ->addObservacao("Alex é um bom programador!")
+    ->addAcao(new NotaFiscalDao())
+    ->addAcao(new EnviarSMS())
+    ->addAcao(new Impressora())
     ->build();
-
-$notaFiscal->imprimir();

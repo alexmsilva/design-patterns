@@ -10,3 +10,4 @@ Apenas um repositório com alguns padrões de projeto, desenvolvidos em PHP, par
 - Decorator
 - State
 - Builder
+- Observer

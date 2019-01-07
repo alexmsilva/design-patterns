@@ -14,6 +14,7 @@ class NotaFiscalBuilder
     private $impostos;
     private $itens;
     private $observacoes;
+    private $acoesAoGerarNota;
 
     function __construct()
     {
@@ -22,6 +23,7 @@ class NotaFiscalBuilder
         $this->impostos = 0;
         $this->observacoes = [];
         $this->dataDeEmissao = new DateTime($data);
+        $this->acoesAoGerar = [];
     }
 
     public function paraEmpresa($empresa)
@@ -61,9 +63,16 @@ class NotaFiscalBuilder
         return $this;
     }
 
+    public function addAcao(AcaoAoGerarNota $acao)
+    {
+        $this->acoesAoGerarNota[] = $acao;
+
+        return $this;
+    }
+
     public function build()
     {
-        return new NotaFiscal(
+        $notaFiscal =  new NotaFiscal(
             $this->empresa,
             $this->cnpj,
             $this->dataDeEmissao,
@@ -72,5 +81,11 @@ class NotaFiscalBuilder
             $this->itens,
             $this->observacoes
         );
+
+        foreach ($this->acoesAoGerarNota as $acao) {
+            $acao->executa($notaFiscal);
+        }
+
+        return $notaFiscal;
     }
 }
