@@ -1,4 +1,6 @@
 <?php
+namespace App\Observer;
+
 class NotaFiscalDao implements AcaoAoGerarNota
 {
     public function executa($notaFiscal)

@@ -1,4 +1,9 @@
 <?php
+namespace App\Decorator;
+
+use App\Orcamento;
+use App\Strategy\Imposto;
+
 abstract class ImpostoDecorator implements Imposto
 {
     protected $outroImposto;

@@ -1,4 +1,9 @@
 <?php
+namespace App\Strategy;
+
+use App\Orcamento;
+use App\Decorator\ImpostoDecorator;
+
 /**
  * Retorna 0,5% do valor do orçamento, caso seja menor que 1000
  * Retorna 0,7% do valor do orçamento, caso seja maior ou igual 1000 e menor ou igual 3000

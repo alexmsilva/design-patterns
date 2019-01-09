@@ -1,4 +1,9 @@
 <?php
+namespace App\Strategy;
+
+use App\Orcamento;
+use App\TemplateMethod\TemplateImpostoCondicional;
+
 class ISS extends TemplateImpostoCondicional
 {
     public function deveUsarMaximaTaxacao(Orcamento $orcamento)

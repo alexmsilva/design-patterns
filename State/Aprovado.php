@@ -1,5 +1,8 @@
 <?php
-require_once "Finalizado.php";
+namespace App\State;
+
+use Exception;
+use App\Orcamento;
 
 class Aprovado implements Estado
 {

@@ -1,4 +1,6 @@
 <?php
+namespace App\Observer;
+
 class Impressora implements AcaoAoGerarNota
 {
     public function executa($notaFiscal)

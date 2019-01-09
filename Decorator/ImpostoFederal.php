@@ -1,4 +1,9 @@
 <?php
+namespace App\Decorator;
+
+use App\Orcamento;
+use App\Strategy\Imposto;
+
 class ImpostoFederal implements Imposto
 {
     public function calcula(Orcamento $orcamento)

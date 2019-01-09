@@ -1,4 +1,8 @@
 <?php
+namespace App\ChainResponsability;
+
+use App\Orcamento;
+
 class Desconto500Reais implements Desconto
 {
 	private $proximo;

@@ -1,32 +1,34 @@
 <?php
-require "Orcamento.php";
-require "ChainResponsability/Desconto.php";
-require "ChainResponsability/CalculadoraDesconto.php";
-require "ChainResponsability/Item.php";
-require "Strategy/CalculadoraImposto.php";
-require "Strategy/Imposto.php";
-require "Decorator/ImpostoDecorator.php";
-require "Decorator/ImpostoEstadual.php";
-require "Decorator/ImpostoFederal.php";
-require "TemplateMethod/TemplateImpostoCondicional.php";
-require "TemplateMethod/ICPP.php";
-require "Strategy/ICMS.php";
-require "Strategy/ISS.php";
-require "Strategy/IOF.php";
-require "Strategy/ICCC.php";
-require "Builder/NotaFiscal.php";
-require "Builder/NotaFiscalBuilder.php";
-require "Observer/AcaoAoGerarNota.php";
-require "Observer/NotaFiscalDao.php";
-require "Observer/Impressora.php";
-require "Observer/EnviarSMS.php";
+namespace App;
+
+spl_autoload_register(function ($className) {
+    $path = explode('\\', $className);
+    array_shift($path);
+    require implode('/', $path) . ".php";
+});
+
+use App\Strategy\CalculadoraImposto;
+use App\Strategy\ICMS;
+use App\Strategy\ISS;
+use App\Strategy\IOF;
+use App\Strategy\ICCC;
+use App\TemplateMethod\ICPP;
+use App\Decorator\ImpostoEstadual;
+use App\Decorator\ImpostoFederal;
+use App\ChainResponsability\Item;
+use App\ChainResponsability\CalculadoraDesconto;
+use App\Builder\NotaFiscalBuilder;
+use App\Observer\NotaFiscalDao;
+use App\Observer\EnviarSMS;
+use App\Observer\Impressora;
+
 
 $orcamento = new Orcamento(6500);
 
 echo PHP_EOL, "STATUS: ", $orcamento->getEstado(), PHP_EOL;
 try {
     $orcamento->finalizar();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     echo PHP_EOL,  "TENTA FINALIZAR: ", $e->getMessage(), PHP_EOL;    
 }
 
@@ -54,7 +56,7 @@ echo PHP_EOL, "DESCONTO: ", $calculadoraDesconto->calcula($orcamento), PHP_EOL;
 $orcamento->aprovar();
 try {
     $orcamento->aprovar();
-} catch (Exception $e) {
+} catch (\Exception $e) {
     echo PHP_EOL,  "TENTA APROVAR NOVAMENTE: ", $e->getMessage(), PHP_EOL;    
 }
 

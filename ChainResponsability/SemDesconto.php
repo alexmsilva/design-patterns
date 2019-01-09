@@ -1,4 +1,8 @@
 <?php
+namespace App\ChainResponsability;
+
+use App\Orcamento;
+
 class SemDesconto implements Desconto
 {
 	public function calcula(Orcamento $orcamento)
@@ -11,4 +15,3 @@ class SemDesconto implements Desconto
 
 	}
 }
-?>

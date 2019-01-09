@@ -1,4 +1,8 @@
 <?php
+namespace App\TemplateMethod;
+
+use App\Orcamento;
+
 class ICPP extends TemplateImpostoCondicional
 {
     public function deveUsarMaximaTaxacao(Orcamento $orcamento)

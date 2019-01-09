@@ -1,4 +1,6 @@
 <?php
+namespace App\ChainResponsability;
+
 class item
 {
 	private $nome;
@@ -20,4 +22,3 @@ class item
 		return $this->valor;
 	}
 }
-?>

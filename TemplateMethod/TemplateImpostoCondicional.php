@@ -1,4 +1,9 @@
 <?php
+namespace App\TemplateMethod;
+
+use App\Orcamento;
+use App\Decorator\ImpostoDecorator;
+
 abstract class TemplateImpostoCondicional extends ImpostoDecorator
 {
 	public final function calcula(Orcamento $orcamento)

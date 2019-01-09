@@ -1,8 +1,7 @@
 <?php
-require "Desconto500Reais.php";
-require "Desconto5Items.php";
-require "SemDesconto.php";
-require "Desconto6MilReais.php";
+namespace App\ChainResponsability;
+
+use App\Orcamento;
 
 class CalculadoraDesconto
 {

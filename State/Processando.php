@@ -1,7 +1,8 @@
 <?php
-require_once "Estado.php";
-require_once "Aprovado.php";
-require_once "Reprovado.php";
+namespace App\State;
+
+use Exception;
+use App\Orcamento;
 
 class Processando implements Estado
 {

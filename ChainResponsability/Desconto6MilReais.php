@@ -1,4 +1,8 @@
 <?php
+namespace App\ChainResponsability;
+
+use App\Orcamento;
+
 class Desconto6MilReais implements Desconto
 {
 	private $proximo;
@@ -17,4 +21,3 @@ class Desconto6MilReais implements Desconto
 		$this->proximo = $desconto;
 	}
 }
-?>

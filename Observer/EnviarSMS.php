@@ -1,4 +1,6 @@
 <?php
+namespace App\Observer;
+
 class EnviarSMS implements AcaoAoGerarNota
 {
     public function executa($notaFiscal)

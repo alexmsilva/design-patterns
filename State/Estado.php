@@ -1,4 +1,6 @@
 <?php
+namespace App\State;
+
 interface Estado
 {
     public function getName();

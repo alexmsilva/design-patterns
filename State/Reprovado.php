@@ -1,4 +1,9 @@
 <?php
+namespace App\State;
+
+use Exception;
+use App\Orcamento;
+
 class Reprovado implements Estado
 {
     private $name;
