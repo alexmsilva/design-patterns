@@ -1,6 +1,7 @@
 # Design Patterns / Padrões de Projeto
 
-Apenas um repositório com alguns padrões de projeto, desenvolvidos em PHP, para uso rápido em algum curso de curta duração.
+Apenas um repositório com alguns padrões de projeto desenvolvidos em PHP.
+A intenção é usar esse código como refência simples e rápida para ensinar outras pessoas.
 
 ## Padrões Abordados
 
@@ -11,3 +12,4 @@ Apenas um repositório com alguns padrões de projeto, desenvolvidos em PHP, par
 - State
 - Builder
 - Observer
+- Factory

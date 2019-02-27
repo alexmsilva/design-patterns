@@ -21,6 +21,7 @@ use App\Builder\NotaFiscalBuilder;
 use App\Observer\NotaFiscalDao;
 use App\Observer\EnviarSMS;
 use App\Observer\Impressora;
+use App\Factory\ConnectionFactory;
 
 
 $orcamento = new Orcamento(6500);
@@ -76,3 +77,7 @@ $notaFiscal = $notaFiscalBuilder->paraEmpresa("88 Insurtech")->comCnpj("11.976.4
     ->addAcao(new EnviarSMS())
     ->addAcao(new Impressora())
     ->build();
+
+$conexao = ConnectionFactory::getConnection();
+echo PHP_EOL;
+
